@@ -44,6 +44,7 @@ sentiments <- tweets %>%
 
 ``` r
 sentiments %>%
+  filter(!(word %in% c("joker", "parasite"))) %>%
   group_by(sentiment) %>%
   top_n(5, wt = n) %>%
   ungroup() %>%
