@@ -37,7 +37,7 @@ sentiments <- tweets %>%
 
 ```{r sentiment-figure}
 sentiments %>%
-  filter(!(word %in% c("joker", "parasite"))) %>%
+  filter(!(word %in% c("parasite", "joker"))) %>%
   group_by(sentiment) %>%
   top_n(5, wt = n) %>%
   ungroup() %>%
