@@ -1,7 +1,7 @@
 ---
 title: "Oscar Nomination Sentiment"
 author: "Lucy D'Agostino McGowan"
-output: github_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -37,6 +37,7 @@ sentiments <- tweets %>%
 
 ```{r sentiment-figure}
 sentiments %>%
+  filter(!(word %in% c("joker", "parasite"))) %>%
   group_by(sentiment) %>%
   top_n(5, wt = n) %>%
   ungroup() %>%
